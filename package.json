@@ -1,0 +1,9 @@
+{
+    "name": "zeplin-prism-extras",
+    "version": "0.1.0",
+    "description": "Language extras for Prism",
+    "devDependencies": {
+        "@zeplin/eslint-config": "1.1.0",
+        "eslint": "4.14.0"
+    }
+}
