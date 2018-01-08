@@ -1,1 +1,1 @@
-import "./components/prism-css-zeplin-extras";
+import "./components/prism-css-extras";
