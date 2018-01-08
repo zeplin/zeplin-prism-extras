@@ -12,8 +12,8 @@
         "clean": "rm -rf ./dist"
     },
     "devDependencies": {
-        "@zeplin/eslint-config": "1.1.0",
-        "eslint": "4.14.0",
+        "@zeplin/eslint-config": "^1.1.0",
+        "eslint": "^4.14.0",
         "rollup": "^0.53.3",
         "uglify-js": "^3.3.5"
     }
