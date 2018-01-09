@@ -1,4 +1,4 @@
-const swift = Prism.languages.swift;
+var swift = Prism.languages.swift;
 
 // Add `objcMembers`, `nonobjc`, `discardableResult`.
 swift.atrule = /@\b(?:IB(?:Outlet|Designable|Action|Inspectable)|class_protocol|exported|noreturn|NS(?:Copying|Managed)|objc|objcMembers|nonobjc|UIApplicationMain|auto_closure|discardableResult)\b/;
