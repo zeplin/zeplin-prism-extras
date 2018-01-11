@@ -7,6 +7,7 @@ module.exports = {
         "Prism": false
     },
     rules: {
+        // Remove ECMAScript 6.
         "no-var": "off",
         // Add `ignoreRegExpLiterals`.
         "max-len": ["error", {
