@@ -2,9 +2,11 @@ var sass = Prism.languages.sass;
 
 // Add `function` and CSS extras.
 var css = Prism.languages.css;
-[sass["variable-line"].inside, sass["property-line"].inside].forEach(function (inside) {
-    inside.builtin = css.builtin;
-    inside.hexcode = css.hexcode;
-    inside.number = css.number;
-    inside.function = css.function;
+[sass["variable-line"], sass["property-line"]].forEach(function (object) {
+    Prism.languages.insertBefore("inside", "variable", {
+        builtin: css.builtin,
+        hexcode: css.hexcode,
+        number: css.number,
+        function: css.function
+    }, object);
 });
