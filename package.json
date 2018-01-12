@@ -1,20 +1,17 @@
 {
     "name": "zeplin-prism-extras",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "description": "Language extras for Prism",
     "scripts": {
         "lint": "./node_modules/.bin/eslint .",
-        "bundle": "./node_modules/.bin/rollup ./index.js -o dist/zeplin-prism-extras.js -f iife --sourcemap",
-        "uglify": "./node_modules/.bin/uglifyjs dist/zeplin-prism-extras.js -o dist/zeplin-prism-extras.min.js  --in-source-map dist/zeplin-prism-extras.js.map --source-map filename=dist/zeplin-prism-extras.min.js.map",
-        "build:dev": "npm run bundle",
-        "build:prod": "npm run bundle && npm run uglify",
+        "uglify": "./uglify.sh",
+        "build": "npm run uglify",
         "deploy": "./deploy.sh",
         "clean": "rm -rf ./dist"
     },
     "devDependencies": {
         "@zeplin/eslint-config": "^1.1.0",
         "eslint": "^4.14.0",
-        "rollup": "^0.53.3",
         "uglify-js": "^3.3.5"
     }
 }
