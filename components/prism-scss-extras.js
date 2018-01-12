@@ -6,5 +6,4 @@ Prism.languages.insertBefore("scss", "function", {
     number: css.number
 });
 
-// Modify and clone language.
 Prism.languages.scss.atrule.inside.rest = Prism.util.clone(Prism.languages.scss);
