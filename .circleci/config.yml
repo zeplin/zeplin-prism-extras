@@ -1,0 +1,43 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: zeplin/amazon-linux-ami:cci-node8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: npm run lint
+
+  deploy:
+      docker:
+      - image: zeplin/amazon-linux-ami:cci-node8
+      steps:
+        - checkout
+        - restore_cache:
+            key: dependency-cache-{{ checksum "package.json" }}
+        - run:
+            name: Sync to S3
+            command: npm run deploy
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      # Run the test for all branches
+      - test
+      - deploy:
+          requires:
+            - test
+          filters:
+            # Ignore any commit on any branch
+            branches:
+              ignore: /.*/
+            # Run the job only on version tags
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*/
