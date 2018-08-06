@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:8
+      - image: zeplin/amazon-linux-ami:cci-node8
     steps:
       - checkout
       - restore_cache:
@@ -16,10 +16,9 @@ jobs:
 
   deploy:
       docker:
-      - image: circleci/python:2.7-node
+      - image: zeplin/amazon-linux-ami:cci-node8
       steps:
         - checkout
-        - run: sudo pip install awscli
         - restore_cache:
             key: dependency-cache-{{ checksum "package.json" }}
         - run:
