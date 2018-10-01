@@ -9,6 +9,9 @@
         "deploy": "./deploy.sh",
         "clean": "rm -rf ./dist"
     },
+    "files": [
+        "components"
+    ],
     "devDependencies": {
         "@zeplin/eslint-config": "^1.1.0",
         "eslint": "^4.14.0",
