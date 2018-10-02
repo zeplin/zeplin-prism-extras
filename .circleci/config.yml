@@ -24,6 +24,12 @@ jobs:
         - run:
             name: Sync to S3
             command: npm run deploy
+        - run:
+            name: Publish to NPM
+            command: |
+              echo "@zeplin:registry=https://registry.npmjs.org/" >> ~/.npmrc
+              echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+              npm publish --access public
 
 workflows:
   version: 2
