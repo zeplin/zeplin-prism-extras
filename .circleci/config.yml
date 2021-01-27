@@ -35,8 +35,11 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      # Run the test for all branches
-      - test
+      # Run the test for all branches and version tags
+      - test:
+          filters:
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*/
       - deploy:
           requires:
             - test
